@@ -1,0 +1,242 @@
+:root {
+  --pixel-font: "Press Start 2P", monospace;
+  --white: #f8f8f8;
+  --red: #ff5d73;
+  --cyan: #7de3ff;
+  --black: #000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--black);
+  color: var(--white);
+}
+
+body {
+  overflow: hidden;
+  font-family: var(--pixel-font);
+}
+
+.app,
+.stage-shell,
+#gameCanvas {
+  width: 100%;
+  height: 100%;
+}
+
+.app {
+  position: relative;
+}
+
+.start-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.24), rgba(0, 0, 0, 0.24)),
+    url("./1.jpg") center center / cover no-repeat;
+}
+
+.start-screen.hidden {
+  display: none;
+}
+
+.start-content {
+  text-align: center;
+  padding: 24px;
+}
+
+.start-content h1 {
+  margin: 0 0 36px;
+  font-size: clamp(20px, 3vw, 34px);
+  line-height: 1.8;
+  color: var(--white);
+  text-shadow:
+    4px 0 0 #000,
+    -4px 0 0 #000,
+    0 4px 0 #000,
+    0 -4px 0 #000,
+    0 0 18px rgba(255, 93, 115, 0.8);
+}
+
+.pixel-button,
+.close-button {
+  font-family: var(--pixel-font);
+  border: 4px solid #000;
+  cursor: pointer;
+}
+
+.pixel-button {
+  padding: 16px 24px;
+  background: #ffe066;
+  color: #000;
+  box-shadow: 0 8px 0 #000;
+}
+
+.pixel-button:hover {
+  transform: translateY(2px);
+  box-shadow: 0 6px 0 #000;
+}
+
+.hud {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 3;
+}
+
+.hud-item {
+  padding: 12px 14px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 3px solid #2b2b2b;
+  color: var(--cyan);
+  font-size: 12px;
+  line-height: 1.6;
+  text-shadow: 0 0 8px rgba(125, 227, 255, 0.75);
+}
+
+.hud-item span {
+  color: #fff47a;
+}
+
+.stage-shell {
+  position: relative;
+  background: #000;
+}
+
+#gameCanvas {
+  display: block;
+  touch-action: none;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 15;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-card {
+  position: relative;
+  width: min(560px, 100%);
+  padding: 24px;
+  background: #101010;
+  border: 4px solid #404040;
+  box-shadow: 0 0 0 4px #000;
+}
+
+.modal-card h2 {
+  margin: 0 0 20px;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.close-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  background: #ff5d73;
+  color: #000;
+}
+
+.wish-form {
+  display: grid;
+  gap: 14px;
+}
+
+.wish-form label {
+  display: grid;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.wish-form input,
+.wish-form textarea {
+  width: 100%;
+  padding: 14px;
+  border: 3px solid #333;
+  background: #000;
+  color: #fff;
+  font: 12px/1.7 var(--pixel-font);
+}
+
+.wish-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-feedback {
+  min-height: 22px;
+  margin: 12px 0 0;
+  color: #7de3ff;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.wish-toast {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 20;
+  width: min(760px, calc(100vw - 40px));
+  padding: 20px;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.86);
+  border: 4px solid #fff47a;
+  color: #fff47a;
+  text-align: center;
+  font-size: clamp(14px, 2vw, 24px);
+  line-height: 1.8;
+  text-shadow: 0 0 12px rgba(255, 244, 122, 0.7);
+}
+
+.chest-button {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 14;
+  padding: 14px 16px;
+  background: #c78a2a;
+  color: #000;
+  border: 4px solid #000;
+  box-shadow: 0 8px 0 #000;
+  font: 12px var(--pixel-font);
+  cursor: pointer;
+}
+
+.chest-button:hover {
+  transform: translateY(2px);
+  box-shadow: 0 6px 0 #000;
+}
+
+@media (max-width: 720px) {
+  .start-content h1 {
+    line-height: 2;
+  }
+
+  .hud-item,
+  .wish-form label,
+  .wish-form input,
+  .wish-form textarea,
+  .form-feedback {
+    font-size: 10px;
+  }
+}

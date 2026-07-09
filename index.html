@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>4.30生日快乐</title>
+  <meta name="description" content="生日快乐切切乐">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <audio id="bgm" src="./229.mp3" preload="auto" loop></audio>
+
+  <main class="app">
+    <section id="startScreen" class="start-screen">
+      <div class="start-content">
+        <h1>4.30生日快乐！</h1>
+        <button id="startButton" class="pixel-button" type="button">START</button>
+      </div>
+    </section>
+
+    <section class="hud">
+      <div class="hud-item">SLICE <span id="sliceCount">0</span></div>
+    </section>
+
+    <section class="stage-shell">
+      <canvas id="gameCanvas" aria-label="生日切切乐"></canvas>
+    </section>
+  </main>
+
+  <button id="chestButton" class="chest-button hidden" type="button" aria-label="重新打开祝福弹窗">CHEST</button>
+
+  <div id="wishModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="wishTitle">
+    <div class="modal-card">
+      <button id="closeModalButton" class="close-button" type="button" aria-label="关闭">×</button>
+      <h2 id="wishTitle">写一句生日祝福</h2>
+      <form id="wishForm" class="wish-form">
+        <label>
+          <span>名字</span>
+          <input name="name" type="text" maxlength="20" placeholder="例如：小明">
+        </label>
+        <label>
+          <span>祝福</span>
+          <textarea name="message" maxlength="120" required placeholder="写一句想说的话"></textarea>
+        </label>
+        <button class="pixel-button" type="submit">SEND</button>
+      </form>
+      <p id="formFeedback" class="form-feedback" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <div id="wishToast" class="wish-toast hidden" aria-live="polite"></div>
+
+  <script src="./config.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "mikutap-wish-api",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "mysql2": "^3.15.1"
+  }
+}
